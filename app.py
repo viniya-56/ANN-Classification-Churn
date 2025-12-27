@@ -6,7 +6,7 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-model = tf.keras.models.load_model('model.h5')
+model = tf.keras.models.load_model('model.h5', compile=False)
 
 ## load the encoders and scaler
 with open('onehot_encoder_geo.pkl','rb') as file:
@@ -65,4 +65,5 @@ if prediction_prob > 0.5:
     st.write('The customer is likely to churn.')
 else:
     st.write('The customer is not likely to churn.')
+
 
